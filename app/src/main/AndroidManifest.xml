@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.server.touchpull">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--下拉刷新-->
+        <activity android:name=".DragPullActivity"/>
+        <!--音量控制-->
+        <activity android:name=".VolumeActivity"/>
+        <!--Activity和Fragment传值-->
+        <activity android:name=".HomeActivity"/>
+        <!--桌面小部件-->
+        <receiver android:name=".realwidget.MyWidgetProvider">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_provider_info"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.server.touchpull.realwidget.MyWidgetProvider.action.CLICK"/>
+            </intent-filter>
+        </receiver>
+        <!--摄像机相关-->
+        <activity android:name=".MyCameraActivity"/>
+
+        <!--滑动图片-->
+        <activity android:name=".RollImages"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DEMO小合集</string>
+    <string name="app_title">点击下面的item看看咯</string>
+    <string name="hint_content">请输入需要传递的值</string>
+    <string name="btn_pass">点击传值</string>
+    <string name="start_camera">点击打开摄像机</string>
+</resources>
