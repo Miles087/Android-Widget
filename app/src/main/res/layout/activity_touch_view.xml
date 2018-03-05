@@ -8,7 +8,7 @@
         android:id="@+id/iv_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <com.example.server.touchpull.view.DragView
+    <com.example.miles.project.view.DragView
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:background="@drawable/masaike"

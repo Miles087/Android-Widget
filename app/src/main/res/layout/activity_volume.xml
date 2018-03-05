@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#99CCFF"
-    tools:context="com.example.server.touchpull.MainActivity">
+    tools:context="com.example.miles.project.MainActivity">
 
     <RelativeLayout
         android:background="#ffffff"
