@@ -39,6 +39,9 @@
 
         <!--滑动图片-->
         <activity android:name=".RollImages"/>
+
+        <!-- 可以拖拽的view -->
+        <activity android:name=".TouchView"/>
     </application>
 
 </manifest>

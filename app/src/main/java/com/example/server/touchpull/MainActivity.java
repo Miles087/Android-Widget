@@ -65,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent jumper = new Intent(mContext,RollImages.class);
                         startActivity(jumper);
                     }break;
+                    case "dragView":{
+                        Intent jumper = new Intent(mContext,TouchView.class);
+                        startActivity(jumper);
+                    }break;
                 }
             }
         });
@@ -92,5 +96,9 @@ public class MainActivity extends AppCompatActivity {
         item4.setStrName(getString(R.string.roll_pictures));
         item4.setStrTag("rollPictures");
         list.add(item4);
+        ItemActivity item5 = new ItemActivity();
+        item5.setStrName(getString(R.string.drag_view));
+        item5.setStrTag("dragView");
+        list.add(item5);
     }
 }

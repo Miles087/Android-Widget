@@ -10,4 +10,5 @@
     <string name="fragment_value_activity">Activity与Fragment传值</string>
     <string name="my_camera">我的摄像机</string>
     <string name="roll_pictures">我的滑动图片</string>
+    <string name="drag_view">可拖拽的view</string>
 </resources>
