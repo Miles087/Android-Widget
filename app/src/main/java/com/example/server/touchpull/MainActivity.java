@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent jumper = new Intent(mContext,VolumeActivity.class);
                         startActivity(jumper);
                     }break;
-                    case "pullValue":{
+                    case "fragmentValueActivity":{
                         Intent jumper = new Intent(mContext,HomeActivity.class);
                         startActivity(jumper);
                     }break;
@@ -73,23 +73,23 @@ public class MainActivity extends AppCompatActivity {
     void initViewData(){
         list.clear();
         ItemActivity item = new ItemActivity();
-        item.setStrName("下拉刷新");
+        item.setStrName(getString(R.string.drag_pull_activity));
         item.setStrTag("pull");
         list.add(item);
         ItemActivity item1 = new ItemActivity();
-        item1.setStrName("音量控制");
+        item1.setStrName(getString(R.string.volume_activity));
         item1.setStrTag("volume");
         list.add(item1);
         ItemActivity item2 = new ItemActivity();
-        item2.setStrName("Activity与Fragment传值");
-        item2.setStrTag("pullValue");
+        item2.setStrName(getString(R.string.fragment_value_activity));
+        item2.setStrTag("fragmentValueActivity");
         list.add(item2);
         ItemActivity item3 = new ItemActivity();
-        item3.setStrName("我的摄像机");
+        item3.setStrName(getString(R.string.my_camera));
         item3.setStrTag("myCamera");
         list.add(item3);
         ItemActivity item4 = new ItemActivity();
-        item4.setStrName("我的滑动图片");
+        item4.setStrName(getString(R.string.roll_pictures));
         item4.setStrTag("rollPictures");
         list.add(item4);
     }
