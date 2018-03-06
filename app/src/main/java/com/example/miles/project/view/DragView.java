@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.miles.project.widget.CacheManager;
 import com.example.miles.project.widget.ScreenUtil;
 
 /**
@@ -23,9 +24,9 @@ public class DragView extends ImageView {
     private int iScreenHeight;
     private Context mContext;
     private boolean bIsDrag = false;
-
     private float downX;
     private float downY;
+    int l,r,t,b;
 
     public boolean isDrag(){
         return this.bIsDrag;
@@ -44,6 +45,29 @@ public class DragView extends ImageView {
     public DragView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
+    }
+
+    @Override
+    public void layout(int l, int t, int r, int b) {
+        if (isDrag()){
+            super.layout(l, t, r, b);
+            return;
+        }
+        String strLeft = "";
+        String strRight = "";
+        String strTop = "";
+        String strButtom = "";
+        try {
+            strLeft = CacheManager.readObject("DrawViewLeft").toString();
+            strRight = CacheManager.readObject("DrawViewRight").toString();
+            strTop = CacheManager.readObject("DrawViewTop").toString();
+            strButtom = CacheManager.readObject("DrawViewButtom").toString();
+            l = Integer.parseInt(strLeft);
+            t = Integer.parseInt(strTop);
+            r = Integer.parseInt(strRight);
+            b = Integer.parseInt(strButtom);
+        }catch (Exception e){}
+        super.layout(l, t, r, b);
     }
 
     @Override
@@ -69,7 +93,6 @@ public class DragView extends ImageView {
                     Log.i("MOVVVVVVVVVVVVE","ACTION_MOVE");
                     final float xDistance = event.getX() - downX;
                     final float yDistance = event.getY() - downY;
-                    int l,r,t,b;
                     //当任意方向滑动距离大于10的时候才算是拖动
                     if (Math.abs(xDistance) > 10 || Math.abs(yDistance) > 10) {
                         Log.i("MOVVVVVVVVVVVVE","draggggggggggggggg MOVE");
@@ -101,9 +124,15 @@ public class DragView extends ImageView {
                     }
                 }break;
                 case MotionEvent.ACTION_UP:{
+                    bIsDrag = false;
+                    CacheManager.writeObject(l,"DrawViewLeft");
+                    CacheManager.writeObject(t,"DrawViewTop");
+                    CacheManager.writeObject(r,"DrawViewRight");
+                    CacheManager.writeObject(b,"DrawViewButtom");
                     setPressed(false);
                 }break;
                 case MotionEvent.ACTION_CANCEL:{
+                    bIsDrag = false;
                     setPressed(false);
                 }break;
             }

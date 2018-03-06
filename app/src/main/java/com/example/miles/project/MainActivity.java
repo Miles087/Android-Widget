@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.example.miles.project.adapter.ItemActivity;
 import com.example.miles.project.adapter.ItemMainCellAdapter;
+import com.example.miles.project.widget.CacheManager;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mContext = this;
         list_activity_item = (ListView)findViewById(R.id.list_activity_item);
+
+        //设置默认缓存路径
+        CacheManager.setSysCachePath(getCacheDir().getPath());
     }
 
     @Override
