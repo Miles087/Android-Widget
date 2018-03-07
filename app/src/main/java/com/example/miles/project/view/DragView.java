@@ -2,6 +2,7 @@ package com.example.miles.project.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -27,7 +28,7 @@ public class DragView extends ImageView {
     private float downX;
     private float downY;
     int l,r,t,b;
-    private long mExitTime;
+    private long mExitTime = 0;
 
     public boolean isDrag(){
         return this.bIsDrag;
@@ -118,22 +119,21 @@ public class DragView extends ImageView {
                             t = b - iHeight;
                         }
                         this.layout(l,t,r,b);
-                    } else {
-                        if (Math.abs(xDistance) == 0 || Math.abs(yDistance) == 0) {
-                            //2秒内只能点击一次
-                            if ((System.currentTimeMillis() - mExitTime) > 2000) {
-                                mExitTime = System.currentTimeMillis();
-                                Toast.makeText(mContext, "你想去掉马赛克吗？ →_→", Toast.LENGTH_LONG).show();
-                            }
-                        }
                     }
                 }break;
                 case MotionEvent.ACTION_UP:{
+                    if (bIsDrag) {
+                        CacheManager.writeObject(l, "DrawViewLeft");
+                        CacheManager.writeObject(t, "DrawViewTop");
+                        CacheManager.writeObject(r, "DrawViewRight");
+                        CacheManager.writeObject(b, "DrawViewButtom");
+                    } else {
+                        if ((System.currentTimeMillis() - mExitTime) > 500) {
+                            mExitTime = System.currentTimeMillis();
+                            Toast.makeText(mContext, "你想去掉马赛克吗？ →_→", Toast.LENGTH_LONG).show();
+                        }
+                    }
                     bIsDrag = false;
-                    CacheManager.writeObject(l,"DrawViewLeft");
-                    CacheManager.writeObject(t,"DrawViewTop");
-                    CacheManager.writeObject(r,"DrawViewRight");
-                    CacheManager.writeObject(b,"DrawViewButtom");
                     setPressed(false);
                 }break;
                 case MotionEvent.ACTION_CANCEL:{
