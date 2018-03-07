@@ -27,6 +27,7 @@ public class DragView extends ImageView {
     private float downX;
     private float downY;
     int l,r,t,b;
+    private long mExitTime;
 
     public boolean isDrag(){
         return this.bIsDrag;
@@ -119,7 +120,11 @@ public class DragView extends ImageView {
                         this.layout(l,t,r,b);
                     } else {
                         if (Math.abs(xDistance) == 0 || Math.abs(yDistance) == 0) {
-                            Toast.makeText(mContext, "你想去掉马赛克吗？ →_→", Toast.LENGTH_LONG).show();
+                            //2秒内只能点击一次
+                            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                                mExitTime = System.currentTimeMillis();
+                                Toast.makeText(mContext, "你想去掉马赛克吗？ →_→", Toast.LENGTH_LONG).show();
+                            }
                         }
                     }
                 }break;
