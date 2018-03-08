@@ -17,6 +17,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -141,7 +142,11 @@ public class RollImages extends Activity {
             strImageList = list;
             for (int i = 0; i < strImageList.size(); i++){
                 ImageView iv = new ImageView(_context);
-                ImageLoader.getInstance().displayImage(strImageList.get(i),iv);
+//                ImageLoader.getInstance().displayImage(strImageList.get(i),iv);
+
+                Picasso.with(mContext).load(strImageList.get(i)).into(iv);
+
+
                 imageViewList.add(iv);
             }
         }
