@@ -47,6 +47,9 @@
 
         <!-- 可以拖拽的view -->
         <activity android:name="com.example.miles.project.TouchView"/>
+
+        <!-- 流式布局 -->
+        <activity android:name=".FlowActivity"/>
     </application>
 
 </manifest>
