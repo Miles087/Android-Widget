@@ -55,7 +55,7 @@ public class FlowLayout extends ViewGroup {
             int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
             //子view占据的高度
             int childHeight = child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
-            if ((lineWidth + childWidth) > sizeWidth){
+            if ((lineWidth + childWidth) > sizeWidth - getPaddingLeft() - getPaddingRight()){
                 //对比得到最大宽度
                 width = Math.max(width,lineWidth);
                 //重置lineWidth
@@ -77,8 +77,8 @@ public class FlowLayout extends ViewGroup {
             }
         }
         setMeasuredDimension(
-                modeWidth == MeasureSpec.AT_MOST?width:sizeWidth,
-                modeHeight == MeasureSpec.AT_MOST?height:sizeHeight);
+                modeWidth == MeasureSpec.AT_MOST?width:sizeWidth + getPaddingLeft() + getPaddingRight(),
+                modeHeight == MeasureSpec.AT_MOST?height:sizeHeight + getPaddingTop() + getPaddingBottom());
 
 
 
@@ -106,7 +106,7 @@ public class FlowLayout extends ViewGroup {
 
             int childWidth = child.getMeasuredWidth();
             int childHeight = child.getMeasuredHeight();
-            if ((childHeight + lineWidth + lp.leftMargin + lp.rightMargin) > width){
+            if ((childHeight + lineWidth + lp.leftMargin + lp.rightMargin) > width - getPaddingLeft() - getPaddingRight()){
                 mLineHeight.add(lineHeight);
                 mAllViews.add(lineViews);
 
@@ -125,8 +125,8 @@ public class FlowLayout extends ViewGroup {
 
 
         //设置子view的位置
-        int left = 0;
-        int top = 0;
+        int left = getPaddingLeft();
+        int top = getPaddingTop();
 
         int lineNumber = mAllViews.size();
 
@@ -149,7 +149,7 @@ public class FlowLayout extends ViewGroup {
                 child.layout(lc,tc,rc,bc);
                 left += child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
             }
-            left = 0;
+            left = getPaddingLeft();
             top += lineHeight;
         }
 

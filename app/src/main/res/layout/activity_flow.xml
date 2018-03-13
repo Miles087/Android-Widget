@@ -40,6 +40,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:text="Sorry for Now"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="Save"/>
         <Button
             android:layout_width="wrap_content"
@@ -50,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="I scream at myself"/>
+            android:text="Nobody can save me"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
