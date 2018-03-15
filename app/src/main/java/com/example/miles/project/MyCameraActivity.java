@@ -53,6 +53,10 @@ public class MyCameraActivity extends Activity {
         startActivityForResult(intent,2333);
     }
 
+    public void customCamera(View view){
+        startActivity(new Intent(this,CustomCameraActivity.class));
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

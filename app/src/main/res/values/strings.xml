@@ -4,6 +4,8 @@
     <string name="hint_content">请输入需要传递的值</string>
     <string name="btn_pass">点击传值</string>
     <string name="start_camera">点击打开摄像机</string>
+    <string name="start_clear_camera">点击打开高清摄像机</string>
+    <string name="custom_camera">自定相机</string>
 
     <string name="drag_pull_activity">下拉刷新</string>
     <string name="volume_activity">音量控制</string>
@@ -12,4 +14,6 @@
     <string name="roll_pictures">我的滑动图片</string>
     <string name="drag_view">可拖拽的view</string>
     <string name="flow_layout">流式布局</string>
+    <string name="camera_manager">Camera管理</string>
+    <string name="camera_capture">拍照</string>
 </resources>
