@@ -27,12 +27,12 @@
     </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         >
         <ListView
             android:id="@+id/lv_list"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="match_parent"
             android:clipToPadding="false"
             android:clipChildren="false"
             ></ListView>
@@ -44,4 +44,19 @@
             android:alpha="0.3"
             android:orientation="horizontal"></LinearLayout>
     </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="距离 #锤子科技2018春季新品发布会# 开场还有 20 分钟。直播链接：O网页链接 ​​​​全部意义就在于是YouTube上的第一个视频 1791年4月21日摩斯电码发明人出生\n坚果3上市 新的工艺\n这里是另外一个换行，下面再换一行\n嘿呦\n再换一行"
+                />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

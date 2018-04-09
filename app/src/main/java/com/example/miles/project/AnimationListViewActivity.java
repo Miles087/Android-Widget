@@ -209,8 +209,8 @@ public class AnimationListViewActivity extends Activity {
     }
 
     /**
-     * i: 0~3
-     * @param i
+     * 设置选中框的位置
+     * @param i 0~3
      */
     private void setSelectViewPosition(int i){
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ll_mask.getLayoutParams());
