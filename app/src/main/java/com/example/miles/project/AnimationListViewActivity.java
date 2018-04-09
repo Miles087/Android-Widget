@@ -74,10 +74,14 @@ public class AnimationListViewActivity extends Activity {
                 if (i > 0) {
                     lv_list.setSelection(i - 1);
                     if (i == list.size() - 2){
-                        setSelectViewPosition(3);
-                    } else if (i == list.size() - 1) {
                         setSelectViewPosition(2);
+                    } else if (i == list.size() - 1) {
+                        setSelectViewPosition(3);
+                    } else {
+                        setSelectViewPosition(1);
                     }
+                } else {
+                    setSelectViewPosition(0);
                 }
             }
         });
@@ -196,7 +200,11 @@ public class AnimationListViewActivity extends Activity {
     }
 
     private void refreshActivity(){
-        setSelectViewPosition(0);
+        if (list.size() <= 1){
+            setSelectViewPosition(0);
+        } else {
+            setSelectViewPosition(1);
+        }
         adapter.notifyDataSetChanged();
     }
 
