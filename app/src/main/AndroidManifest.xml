@@ -54,6 +54,9 @@
 
         <!-- 相机预览 -->
         <activity android:name=".CustomCameraActivity"/>
+
+        <!-- 带动画效果的ListView -->
+        <activity android:name=".AnimationListViewActivity"/>
     </application>
 
 </manifest>

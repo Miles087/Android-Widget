@@ -46,36 +46,41 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 ItemActivity item = list.get(i);
+                Intent jumper = null;
                 switch (item.getStrTag()){
                     case "pull":{
-                        Intent jumper = new Intent(mContext,DragPullActivity.class);
+                        jumper = new Intent(mContext,DragPullActivity.class);
                         startActivity(jumper);
                     }break;
                     case "volume":{
-                        Intent jumper = new Intent(mContext,VolumeActivity.class);
+                        jumper = new Intent(mContext,VolumeActivity.class);
                         startActivity(jumper);
                     }break;
                     case "fragmentValueActivity":{
-                        Intent jumper = new Intent(mContext,HomeActivity.class);
+                        jumper = new Intent(mContext,HomeActivity.class);
                         startActivity(jumper);
                     }break;
                     case "myCamera":{
-                        Intent jumper = new Intent(mContext,MyCameraActivity.class);
+                        jumper = new Intent(mContext,MyCameraActivity.class);
                         startActivity(jumper);
                     }break;
                     case "rollPictures":{
-                        Intent jumper = new Intent(mContext,RollImages.class);
+                        jumper = new Intent(mContext,RollImages.class);
                         startActivity(jumper);
                     }break;
                     case "dragView":{
-                        Intent jumper = new Intent(mContext,TouchView.class);
+                        jumper = new Intent(mContext,TouchView.class);
                         startActivity(jumper);
                     }break;
                     case "flowLayout":{
-                        Intent jumper = new Intent(mContext,FlowActivity.class);
+                        jumper = new Intent(mContext,FlowActivity.class);
                         startActivity(jumper);
                     }break;
+                    case "listView":{
+                        jumper = new Intent(mContext,AnimationListViewActivity.class);
+                    }break;
                 }
+                startActivity(jumper);
             }
         });
     }
@@ -110,5 +115,9 @@ public class MainActivity extends AppCompatActivity {
         item6.setStrName(getString(R.string.flow_layout));
         item6.setStrTag("flowLayout");
         list.add(item6);
+        ItemActivity item7 = new ItemActivity();
+        item7.setStrName(getString(R.string.animation_listview));
+        item7.setStrTag("listView");
+        list.add(item7);
     }
 }
