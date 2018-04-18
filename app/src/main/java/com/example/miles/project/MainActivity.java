@@ -79,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
                     case "listView":{
                         jumper = new Intent(mContext,AnimationListViewActivity.class);
                     }break;
+                    case "fingerUnLock":{
+                        jumper = new Intent(mContext,FingerUnLock.class);
+                    }break;
                 }
                 startActivity(jumper);
             }
@@ -119,5 +122,9 @@ public class MainActivity extends AppCompatActivity {
         item7.setStrName(getString(R.string.animation_listview));
         item7.setStrTag("listView");
         list.add(item7);
+        ItemActivity item8 = new ItemActivity();
+        item8.setStrName(getString(R.string.fingerUnLock));
+        item8.setStrTag("fingerUnLock");
+        list.add(item8);
     }
 }
