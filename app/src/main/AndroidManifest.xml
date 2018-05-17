@@ -3,7 +3,7 @@
     package="com.example.miles.project">
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="21"
         android:targetSdkVersion="22"
         />
 
@@ -62,6 +62,8 @@
 
         <!-- 指纹解锁 -->
         <activity android:name=".FingerUnLock"/>
+
+        <!-- ijkPlayer播放器 -->
     </application>
 
 </manifest>

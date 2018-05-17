@@ -18,6 +18,7 @@
     <string name="camera_capture">拍照</string>
     <string name="animation_listview">带效果的ListView</string>
     <string name="fingerUnLock">指纹解锁</string>
+    <string name="ijkplayer">ijkPlayer播放器</string>
 
     <string name="submit">提交</string>
 </resources>

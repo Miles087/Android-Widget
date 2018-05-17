@@ -7,6 +7,7 @@ package com.example.miles.project.adapter;
 public class AnimListCell {
     private String strTime;
     private String strContent;
+    private String strText;
 
     public String getStrTime() {
         return strTime;
@@ -22,5 +23,13 @@ public class AnimListCell {
 
     public void setStrContent(String strContent) {
         this.strContent = strContent;
+    }
+
+    public String getStrText() {
+        return strText;
+    }
+
+    public void setStrText(String strText) {
+        this.strText = strText;
     }
 }

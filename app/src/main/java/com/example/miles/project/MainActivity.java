@@ -17,6 +17,18 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    /**
+     *  mediaPlayer.setDataSource("https://api.live.bilibili.com/api/playurl?platform=h5&cid=3742025");
+     *  mediaPlayer.setDataSource("rtmp://203.207.99.19:1935/live/CCTV5");
+     *  mediaPlayer.setDataSource("http://www.360doc.com/rtsp://2.itvitv.com/tvbmov.saqjsdfdtwn");
+     *  mediaPlayer.setDataSource("http://58.30.32.130:8090/live/C89B590F4F8C4fbc960028B35665DA39/index.m3u8");
+     *  mediaPlayer.setDataSource("rtsp://58.200.131.2/cctv-6-hd");
+     *  mediaPlayer.setDataSource("rtmp://203.207.99.19:1935/live/CCTV5");
+     */
+
+
+
     ListView list_activity_item;
     Context mContext;
     ItemMainCellAdapter adapter;
@@ -82,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
                     case "fingerUnLock":{
                         jumper = new Intent(mContext,FingerUnLock.class);
                     }break;
+                    case "ijkPlayer":{
+
+                    }break;
                 }
                 startActivity(jumper);
             }
@@ -126,5 +141,9 @@ public class MainActivity extends AppCompatActivity {
         item8.setStrName(getString(R.string.fingerUnLock));
         item8.setStrTag("fingerUnLock");
         list.add(item8);
+        ItemActivity item9 = new ItemActivity();
+        item9.setStrName(getString(R.string.ijkplayer));
+        item9.setStrTag("ijkPlayer");
+        list.add(item9);
     }
 }
