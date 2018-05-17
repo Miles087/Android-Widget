@@ -128,6 +128,7 @@ public class AnimationListViewActivity extends Activity implements View.OnClickL
      * @param i 0~3
      */
     private void setSelectViewPosition(int i){
+        iOffSite = i;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ll_mask.getLayoutParams());
         if (list.size() <= 1){
             params.setMargins(0,0,0,0);
