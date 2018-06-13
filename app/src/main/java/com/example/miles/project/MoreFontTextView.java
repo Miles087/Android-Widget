@@ -55,6 +55,8 @@ public class MoreFontTextView extends Activity {
             mFontTextView.setTextSize(20);
             if (Character.isDigit(c)){
                 mFontTextView.setFontPath("fonts/BrushScriptStd.otf");
+            } else {
+                mFontTextView.setFontPath("fonts/BDZYJT.ttf");
             }
             mFontTextView.setText(String.valueOf(c));
             llBackGround.addView(mFontTextView);
