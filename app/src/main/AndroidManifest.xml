@@ -64,6 +64,9 @@
         <activity android:name=".FingerUnLock"/>
 
         <!-- ijkPlayer播放器 -->
+
+        <!-- 支持多个字符集的TextView -->
+        <activity android:name=".MoreFontTextView"/>
     </application>
 
 </manifest>

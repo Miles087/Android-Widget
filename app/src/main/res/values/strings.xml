@@ -20,6 +20,7 @@
     <string name="fingerUnLock">指纹解锁</string>
     <string name="ijkplayer">ijkPlayer播放器</string>
     <string name="open_xpd">打开小平贷</string>
+    <string name="more_font_textview">支持多个字符集的TextView</string>
 
     <string name="submit">提交</string>
 </resources>

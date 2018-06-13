@@ -101,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                         return;
                     }
+                    case "more_font_textview":{
+                        jumper = new Intent(mContext,MoreFontTextView.class);
+                    }break;
                 }
                 startActivity(jumper);
             }
@@ -149,6 +152,10 @@ public class MainActivity extends AppCompatActivity {
         item9.setStrName(getString(R.string.open_xpd));
         item9.setStrTag("open_xpd");
         list.add(item9);
+        ItemActivity item10 = new ItemActivity();
+        item10.setStrName(getString(R.string.more_font_textview));
+        item10.setStrTag("more_font_textview");
+        list.add(item10);
     }
 
     /**
