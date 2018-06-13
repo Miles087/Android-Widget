@@ -19,6 +19,7 @@
     <string name="animation_listview">带效果的ListView</string>
     <string name="fingerUnLock">指纹解锁</string>
     <string name="ijkplayer">ijkPlayer播放器</string>
+    <string name="open_xpd">打开小平贷</string>
 
     <string name="submit">提交</string>
 </resources>

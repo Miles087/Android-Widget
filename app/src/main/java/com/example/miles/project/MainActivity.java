@@ -2,11 +2,14 @@ package com.example.miles.project;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.miles.project.adapter.ItemActivity;
 import com.example.miles.project.adapter.ItemMainCellAdapter;
@@ -62,31 +65,24 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getStrTag()){
                     case "pull":{
                         jumper = new Intent(mContext,DragPullActivity.class);
-                        startActivity(jumper);
                     }break;
                     case "volume":{
                         jumper = new Intent(mContext,VolumeActivity.class);
-                        startActivity(jumper);
                     }break;
                     case "fragmentValueActivity":{
                         jumper = new Intent(mContext,HomeActivity.class);
-                        startActivity(jumper);
                     }break;
                     case "myCamera":{
                         jumper = new Intent(mContext,MyCameraActivity.class);
-                        startActivity(jumper);
                     }break;
                     case "rollPictures":{
                         jumper = new Intent(mContext,RollImages.class);
-                        startActivity(jumper);
                     }break;
                     case "dragView":{
                         jumper = new Intent(mContext,TouchView.class);
-                        startActivity(jumper);
                     }break;
                     case "flowLayout":{
                         jumper = new Intent(mContext,FlowActivity.class);
-                        startActivity(jumper);
                     }break;
                     case "listView":{
                         jumper = new Intent(mContext,AnimationListViewActivity.class);
@@ -94,9 +90,17 @@ public class MainActivity extends AppCompatActivity {
                     case "fingerUnLock":{
                         jumper = new Intent(mContext,FingerUnLock.class);
                     }break;
-                    case "ijkPlayer":{
-
-                    }break;
+                    case "open_xpd":{
+                        String strPackageName = "com.要打开的APP";
+                        PackageManager packageManager = getPackageManager();
+                        if (checkPackInfo(strPackageName)) {
+                            Intent intent = packageManager.getLaunchIntentForPackage(strPackageName);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(mContext,"没有安装小平贷",Toast.LENGTH_SHORT).show();
+                        }
+                        return;
+                    }
                 }
                 startActivity(jumper);
             }
@@ -142,8 +146,23 @@ public class MainActivity extends AppCompatActivity {
         item8.setStrTag("fingerUnLock");
         list.add(item8);
         ItemActivity item9 = new ItemActivity();
-        item9.setStrName(getString(R.string.ijkplayer));
-        item9.setStrTag("ijkPlayer");
+        item9.setStrName(getString(R.string.open_xpd));
+        item9.setStrTag("open_xpd");
         list.add(item9);
+    }
+
+    /**
+     * 检查包是否存在
+     * @param packName
+     * @return
+     */
+    private boolean checkPackInfo(String packName){
+        PackageInfo packageInfo = null;
+        try{
+            packageInfo = getPackageManager().getPackageInfo(packName, 0);
+        }catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return packageInfo != null;
     }
 }
