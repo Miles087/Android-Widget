@@ -67,6 +67,11 @@
 
         <!-- 支持多个字符集的TextView -->
         <activity android:name=".MoreFontTextView"/>
+
+        <!-- 自定义指纹解锁界面 -->
+        <activity android:name=".MyFingerPrintActivity"/>
+
+
     </application>
 
 </manifest>

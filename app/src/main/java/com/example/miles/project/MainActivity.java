@@ -104,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
                     case "more_font_textview":{
                         jumper = new Intent(mContext,MoreFontTextView.class);
                     }break;
+                    case "fingerUnLockWithMyActivity":{
+                        jumper = new Intent(mContext,MyFingerPrintActivity.class);
+                    }break;
                 }
                 startActivity(jumper);
             }
@@ -156,6 +159,10 @@ public class MainActivity extends AppCompatActivity {
         item10.setStrName(getString(R.string.more_font_textview));
         item10.setStrTag("more_font_textview");
         list.add(item10);
+        ItemActivity item11 = new ItemActivity();
+        item11.setStrName(getString(R.string.fingerUnLockWithMyActivity));
+        item11.setStrTag("fingerUnLockWithMyActivity");
+        list.add(item11);
     }
 
     /**

@@ -102,8 +102,6 @@ public class MKTests {
         mUiDevice.click(60,1427);
         //点击提交
         mUiDevice.click(551,1829);
-0
-
 
     }
 

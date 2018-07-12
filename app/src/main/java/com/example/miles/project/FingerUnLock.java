@@ -47,6 +47,7 @@ public class FingerUnLock extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        // android M(6.0)以下不支持指纹
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             initFingerPrint();
             try{
@@ -58,7 +59,7 @@ public class FingerUnLock extends Activity {
 
             }
         } else {
-            tv_text.setText("该版本暂不支持指纹解锁");
+            tv_text.setText("您的系统版本低于Android 6.0,该版本暂不支持指纹解锁");
         }
         button.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -89,6 +90,10 @@ public class FingerUnLock extends Activity {
                     bCanCheck = false;
                     tv_text.setText("用户未开启锁屏密码");
                     return;
+                }
+                // 如果没有设置密码锁屏，则不能使用指纹识别
+                if (!mKeyguardManager.isKeyguardSecure()) {
+                    tv_text.setText("请在设置界面开启密码锁屏功能");
                 }
                 if (!mFingerprintManager.hasEnrolledFingerprints()) {
                     // 判断是否有已经录入的指纹

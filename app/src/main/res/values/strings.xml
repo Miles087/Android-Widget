@@ -21,6 +21,7 @@
     <string name="ijkplayer">ijkPlayer播放器</string>
     <string name="open_xpd">打开小平贷</string>
     <string name="more_font_textview">支持多个字符集的TextView</string>
+    <string name="fingerUnLockWithMyActivity">自定义指纹解锁view</string>
 
     <string name="submit">提交</string>
 </resources>
