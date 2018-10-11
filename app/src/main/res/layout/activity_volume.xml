@@ -12,6 +12,7 @@
     tools:context="com.example.miles.project.MainActivity">
 
     <RelativeLayout
+        android:id="@+id/rl_content"
         android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="80dp">

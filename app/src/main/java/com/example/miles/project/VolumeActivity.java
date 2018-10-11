@@ -1,13 +1,19 @@
 package com.example.miles.project;
 
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.Path;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 /**
  * Created by Miles on 2018/1/18.
@@ -15,6 +21,7 @@ import android.widget.ImageView;
 
 public class VolumeActivity extends Activity {
     ImageView iv_volume;
+    RelativeLayout rl_content;
 
     private long start = 0;
     private long stop = 0;
@@ -25,6 +32,7 @@ public class VolumeActivity extends Activity {
         setContentView(R.layout.activity_volume);
 
         iv_volume = (ImageView)findViewById(R.id.iv_volume);
+        rl_content = findViewById(R.id.rl_content);
 
         findViewById(R.id.activity_main).setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -68,6 +76,7 @@ public class VolumeActivity extends Activity {
         }
     };
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void setImageRotate(boolean bRollUp){
         if (bRollUp) {
             float fPressTime = stop - start;
@@ -82,9 +91,28 @@ public class VolumeActivity extends Activity {
             animator.start();
         } else {
             //回到原位
-            ObjectAnimator animator = ObjectAnimator.ofFloat(iv_volume, "rotation", 0f);
-            animator.setDuration(500);
-            animator.start();
+            ObjectAnimator animatorReset = ObjectAnimator.ofFloat(iv_volume, "rotation", 0f);
+            animatorReset.setDuration(500);
+            animatorReset.start();
+
+
+
+            float iOriX = 0;
+            float iOriY = 0;
+            float iCtrX = rl_content.getWidth()/2;
+            float iCtrY = 0;
+            float iTerX = rl_content.getWidth()/2+iv_volume.getWidth();
+            float iTerY = 0-rl_content.getHeight();
+
+            Path bezirPath = new Path();
+            bezirPath.moveTo(iOriX,iOriY);
+            bezirPath.quadTo(iCtrX,iCtrY,iTerX,iTerY);
+            ObjectAnimator bezirAnimator = ObjectAnimator.ofFloat(iv_volume,"translationX","translationY",bezirPath);
+
+            AnimatorSet set = new AnimatorSet();
+            set.play(bezirAnimator).with(animatorReset);
+            set.setDuration(2000);
+            set.start();
         }
     }
 }
