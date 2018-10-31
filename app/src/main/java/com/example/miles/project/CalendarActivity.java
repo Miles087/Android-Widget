@@ -17,20 +17,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.miles.project.widget.horizontalListView.HorizontalListView;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class CalendarActivity extends Activity {
 
+    private ImageView iv_year_left;
+    private ImageView iv_year_right;
+    private ImageView iv_month_left;
+    private ImageView iv_month_right;
+
     private TextView tv_year;
+    private TextView tv_month;
+
     private Context mContext;
-    private MonthAdapter adapter;
     private GridView gv_date;                       //日期
-    private HorizontalListView hlv_month;          //月份
-    private List<MonthText> monthList;
+
+    private int iYear = 0;
+    private int iMonth = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,8 +44,13 @@ public class CalendarActivity extends Activity {
 
         mContext = this;
         tv_year = findViewById(R.id.tv_year);
-        hlv_month = findViewById(R.id.hlv_month);
+        tv_month = findViewById(R.id.tv_month);
         gv_date = findViewById(R.id.gv_date);
+
+        iv_year_left = findViewById(R.id.iv_year_left);
+        iv_year_right = findViewById(R.id.iv_year_right);
+        iv_month_left = findViewById(R.id.iv_month_left);
+        iv_month_right = findViewById(R.id.iv_month_right);
 
 
         tv_year.setOnClickListener(new View.OnClickListener() {
@@ -73,16 +83,53 @@ public class CalendarActivity extends Activity {
             }
         });
 
-
-        Calendar CD = Calendar.getInstance();
-        int YY = CD.get(Calendar.YEAR) ;
-        int MM = CD.get(Calendar.MONTH)+1;
+        resetDate();
 
 
+        iv_year_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (iYear > 0) {
+                    iYear -= 1;
+                    initMonthData();
+                }
+            }
+        });
+        iv_year_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iYear += 1;
+                initMonthData();
 
+            }
+        });
 
-
-        initMonthData(0);
+        iv_month_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (iMonth > 1) {
+                    iMonth -= 1;
+                    initMonthData();
+                } else {
+                    iYear -= 1;
+                    iMonth = 12;
+                    initMonthData();
+                }
+            }
+        });
+        iv_month_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (iMonth < 12) {
+                    iMonth += 1;
+                    initMonthData();
+                } else {
+                    iYear += 1;
+                    iMonth = 1;
+                    initMonthData();
+                }
+            }
+        });
     }
 
     @Override
@@ -91,200 +138,124 @@ public class CalendarActivity extends Activity {
     }
 
     /**
-     * 初始化某月的日期
-     * @param month
+     * 当月
      */
-    private void initMonthData(int month){
+    private void resetDate() {
         Calendar CD = Calendar.getInstance();
-        if (month > 0) {
-            CD.set(CD.MONTH,month-1);
+        iYear = CD.get(Calendar.YEAR);
+        iMonth = CD.get(Calendar.MONTH) + 1;
+        initMonthData();
+    }
+
+    /**
+     * 初始化某月的日期
+     */
+    private void initMonthData() {
+        tv_year.setText(iYear + "年");
+        tv_month.setText(iMonth + "月");
+        Calendar calendar = Calendar.getInstance();
+        if (iYear > 0) {
+            calendar.set(Calendar.YEAR, iYear);
         }
-        int YY = CD.get(CD.YEAR);
-        int MM = CD.get(CD.MONTH) + 1;
-        if (month != 0) {
-            MM = month;
+        if (iMonth > 0) {
+            int temp = iMonth - 1;
+            calendar.set(Calendar.MONTH, temp);
         }
-        CD.set(Calendar.DAY_OF_MONTH, 1);  //指定日
-        int dayOfWeek = CD.get(CD.DAY_OF_WEEK);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);  //指定日
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         int weekDay = 0;
         switch (dayOfWeek) {
-            case 1:{
+            case 1: {
                 weekDay = 7;
-            }break;
-            case 2:{
+            }
+            break;
+            case 2: {
                 weekDay = 1;
-            }break;
-            case 3:{
+            }
+            break;
+            case 3: {
                 weekDay = 2;
-            }break;
-            case 4:{
+            }
+            break;
+            case 4: {
                 weekDay = 3;
-            }break;
-            case 5:{
+            }
+            break;
+            case 5: {
                 weekDay = 4;
-            }break;
-            case 6:{
+            }
+            break;
+            case 6: {
                 weekDay = 6;
-            }break;
-            case 7:{
+            }
+            break;
+            case 7: {
                 weekDay = 6;
-            }break;
+            }
+            break;
         }
 
-        initMonth(weekDay, getDaysOfMonth(YY, MM));
+        initMonth(weekDay, getDaysOfMonth(iYear, iMonth));
     }
 
     /**
      * 初始化月份容器  12个月的item
+     *
      * @param iweekday 1号是周几
-     * @param iEndDay 这月几天
+     * @param iEndDay  这月几天
      */
     private void initMonth(int iweekday, int iEndDay) {
 
-        monthList = new ArrayList<>();
-        for(int i=0;i<12;i++){
-            monthList.add(new MonthText(i+1+"月"));
-        }
-        adapter = new MonthAdapter(mContext,monthList);
-        hlv_month.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-
         List<RepaymentDate> list = new ArrayList<>();
-        for(int i = 1; i < 50; i ++){
-            if (i <= 7) {
-                if (i == 1){
-                    list.add(new RepaymentDate("周7"));
-                } else {
-                    list.add(new RepaymentDate("周" + (i-1)));
+        for (int i = 1; i < 50; i++) {
+            if (iweekday == 7) {
+                if (i <= 7) {
+                    if (i == 1) {
+                        list.add(new RepaymentDate("周7"));
+                    } else {
+                        list.add(new RepaymentDate("周" + (i - 1)));
+                    }
+                } else if (i > iweekday + 7 && i <= iweekday + 7 + iEndDay) {
+                    list.add(new RepaymentDate(i - 7 - iweekday + ""));
                 }
-            } else if (i > 7 && i <= iweekday+7) {
-                list.add(new RepaymentDate(""));
-            } else if (i > iweekday+7 && i <= iweekday+7+iEndDay) {
-                list.add(new RepaymentDate(i-7-iweekday+""));
             } else {
-                list.add(new RepaymentDate(""));
+                if (i <= 7) {
+                    if (i == 1) {
+                        list.add(new RepaymentDate("周7"));
+                    } else {
+                        list.add(new RepaymentDate("周" + (i - 1)));
+                    }
+                } else if (i > 7 && i <= iweekday + 7) {
+                    list.add(new RepaymentDate(""));
+                } else if (i > iweekday + 7 && i <= iweekday + 7 + iEndDay) {
+                    list.add(new RepaymentDate(i - 7 - iweekday + ""));
+                }
             }
         }
 
 
         //TODO 测试数据
         for (RepaymentDate date : list) {
-            if ("12".equals(date.getStrDate())){
+            if ("12".equals(date.getStrDate())) {
                 date.setStrType("1");
             } else if ("15".equals(date.getStrDate())) {
                 date.setStrType("2");
             }
         }
 
-        DateAdapter ad = new DateAdapter(mContext,list);
+        DateAdapter ad = new DateAdapter(mContext, list);
         gv_date.setAdapter(ad);
         ad.notifyDataSetChanged();
     }
 
     /**
-     * 月份类
-     */
-    class MonthText {
-        private String strMonth = "";
-        private boolean isSelect = false;
-
-        MonthText(String month) {
-            strMonth = month;
-        }
-
-        public String getStrMonth() {
-            return strMonth;
-        }
-
-        public void setStrMonth(String strMonth) {
-            this.strMonth = strMonth;
-        }
-
-        public boolean isSelect() {
-            return isSelect;
-        }
-
-        public void setSelect(boolean select) {
-            isSelect = select;
-        }
-    }
-
-    /**
-     * 月份adapter
-     */
-    class MonthAdapter extends BaseAdapter{
-
-        private List<MonthText> monthList;
-        private Context mContext;
-
-        MonthAdapter(Context c, List<MonthText> list){
-            monthList = list;
-            mContext = c;
-        }
-
-        @Override
-        public int getCount() {
-            return monthList.size();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return monthList.get(i);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.M)
-        @Override
-        public View getView(final int i, View view, ViewGroup viewGroup) {
-            final ViewHolder holder;
-            if (view == null) {
-                view = LayoutInflater.from(mContext).inflate(R.layout.v3_item_calender_month,null);
-                holder = new ViewHolder();
-                holder.tvMonth = (TextView)view.findViewById(R.id.tv_month);
-                view.setTag(holder);
-            } else {
-                holder = (ViewHolder) view.getTag();
-            }
-            final MonthText item = monthList.get(i);
-            holder.tvMonth.setText(item.getStrMonth());
-            if (item.isSelect) {
-                holder.tvMonth.setTextColor(getColor(R.color.version3_home_red));
-            } else {
-                holder.tvMonth.setTextColor(getColor(R.color.black));
-            }
-            holder.tvMonth.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    for(MonthText m : monthList){
-                        m.setSelect(false);
-                    }
-                    monthList.get(i).setSelect(true);
-                    adapter.notifyDataSetChanged();
-
-                    initMonthData(i+1);
-                }
-            });
-            return view;
-        }
-
-        class ViewHolder{
-            TextView tvMonth;
-        }
-    }
-
-    /**
      * 回款日期类
      */
-    class RepaymentDate{
+    class RepaymentDate {
         private String strDate;
         private String strType = "0";     //  0-无数据 1-未回款  2-已回款
 
-        RepaymentDate(String date){
+        RepaymentDate(String date) {
             strDate = date;
         }
 
@@ -308,12 +279,12 @@ public class CalendarActivity extends Activity {
     /**
      * 回款日期adapter
      */
-    class DateAdapter extends BaseAdapter{
+    class DateAdapter extends BaseAdapter {
 
         private List<RepaymentDate> dateList;
         private Context mContext;
 
-        DateAdapter(Context c, List<RepaymentDate> list){
+        DateAdapter(Context c, List<RepaymentDate> list) {
             dateList = list;
             mContext = c;
         }
@@ -338,7 +309,7 @@ public class CalendarActivity extends Activity {
         public View getView(final int i, View view, ViewGroup viewGroup) {
             final ViewHolder holder;
             if (view == null) {
-                view = LayoutInflater.from(mContext).inflate(R.layout.v3_item_calendar,null);
+                view = LayoutInflater.from(mContext).inflate(R.layout.v3_item_calendar, null);
                 holder = new ViewHolder();
                 holder.tv_text = view.findViewById(R.id.tv_text);
                 holder.iv_hui = view.findViewById(R.id.iv_hui);
@@ -349,30 +320,37 @@ public class CalendarActivity extends Activity {
             final RepaymentDate item = dateList.get(i);
             String strDate = "";
             String string = item.getStrDate();
-            if (string.contains("周")){
-                string = string.substring(1,2);
-                switch (string){
-                    case "1":{
+            if (string.contains("周")) {
+                string = string.substring(1, 2);
+                switch (string) {
+                    case "1": {
                         strDate = "一";
-                    }break;
-                    case "2":{
+                    }
+                    break;
+                    case "2": {
                         strDate = "二";
-                    }break;
-                    case "3":{
+                    }
+                    break;
+                    case "3": {
                         strDate = "三";
-                    }break;
-                    case "4":{
+                    }
+                    break;
+                    case "4": {
                         strDate = "四";
-                    }break;
-                    case "5":{
+                    }
+                    break;
+                    case "5": {
                         strDate = "五";
-                    }break;
-                    case "6":{
+                    }
+                    break;
+                    case "6": {
                         strDate = "六";
-                    }break;
-                    case "7":{
+                    }
+                    break;
+                    case "7": {
                         strDate = "日";
-                    }break;
+                    }
+                    break;
                 }
             } else {
                 strDate = item.getStrDate().toString();
@@ -396,7 +374,7 @@ public class CalendarActivity extends Activity {
             return view;
         }
 
-        class ViewHolder{
+        class ViewHolder {
             TextView tv_text;
             ImageView iv_hui;
         }
@@ -404,32 +382,42 @@ public class CalendarActivity extends Activity {
 
     /**
      * 获取某月有几天
-     * @param iYear
-     * @param iMonth
+     *
+     * @param iYear 年份
+     * @param iMonth 月份
      * @return
      */
-    private int getDaysOfMonth(int iYear, int iMonth){
+    private int getDaysOfMonth(int iYear, int iMonth) {
         switch (iMonth) {
-            case 1:{}
-            case 3:{}
-            case 5:{}
-            case 7:{}
-            case 8:{}
-            case 10:{}
-            case 12:{
+            case 1: {
+            }
+            case 3: {
+            }
+            case 5: {
+            }
+            case 7: {
+            }
+            case 8: {
+            }
+            case 10: {
+            }
+            case 12: {
                 return 31;
             }
-            case 2:{
-                if (isLeapYear(iYear)){
+            case 2: {
+                if (isLeapYear(iYear)) {
                     return 29;
                 } else {
                     return 28;
                 }
             }
-            case 4:{}
-            case 6:{}
-            case 9:{}
-            case 11:{
+            case 4: {
+            }
+            case 6: {
+            }
+            case 9: {
+            }
+            case 11: {
                 return 30;
             }
         }
@@ -438,6 +426,7 @@ public class CalendarActivity extends Activity {
 
     /**
      * 判断闰年
+     *
      * @param iYear
      * @return
      */
