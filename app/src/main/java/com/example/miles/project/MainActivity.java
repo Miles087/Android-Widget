@@ -107,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
                     case "fingerUnLockWithMyActivity":{
                         jumper = new Intent(mContext,MyFingerPrintActivity.class);
                     }break;
+                    case "myCalendar":{
+                        jumper = new Intent(mContext,CalendarActivity.class);
+                    }break;
                 }
                 startActivity(jumper);
             }
@@ -163,6 +166,10 @@ public class MainActivity extends AppCompatActivity {
         item11.setStrName(getString(R.string.fingerUnLockWithMyActivity));
         item11.setStrTag("fingerUnLockWithMyActivity");
         list.add(item11);
+        ItemActivity item12 = new ItemActivity();
+        item12.setStrName(getString(R.string.myCalendar));
+        item12.setStrTag("myCalendar");
+        list.add(item12);
     }
 
     /**

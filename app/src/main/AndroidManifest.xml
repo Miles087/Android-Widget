@@ -71,6 +71,9 @@
         <!-- 自定义指纹解锁界面 -->
         <activity android:name=".MyFingerPrintActivity"/>
 
+        <!-- 自定义日历 -->
+        <activity android:name=".CalendarActivity" />
+
 
     </application>
 

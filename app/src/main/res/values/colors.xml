@@ -6,4 +6,10 @@
 
 
     <color name="main">#99CCFF</color>
+
+    <color name="black">#000000</color>
+
+    <color name="version3_back_ground_color">#F5F5F5</color>
+    <color name="version3_home_red">#FF4B43</color>
+    <color name="white">#FFFFFF</color>
 </resources>
