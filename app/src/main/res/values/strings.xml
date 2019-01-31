@@ -23,6 +23,8 @@
     <string name="more_font_textview">支持多个字符集的TextView</string>
     <string name="fingerUnLockWithMyActivity">自定义指纹解锁view</string>
     <string name="myCalendar">自定义日历</string>
+    <string name="mySuperCalendar">更牛逼的自定义日历</string>
+    <string name="getApplicationList">拉取手机APP列表</string>
 
     <string name="submit">提交</string>
 </resources>

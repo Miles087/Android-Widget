@@ -74,6 +74,11 @@
         <!-- 自定义日历 -->
         <activity android:name=".CalendarActivity" />
 
+        <!-- 带设定日期，设定时间的日历 -->
+        <activity android:name=".SuperCalendar" />
+
+        <!-- 拉去手机里的APP列表 -->
+        <activity android:name=".GetApplicationListActivity" />
 
     </application>
 

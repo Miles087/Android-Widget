@@ -110,6 +110,12 @@ public class MainActivity extends AppCompatActivity {
                     case "myCalendar":{
                         jumper = new Intent(mContext,CalendarActivity.class);
                     }break;
+                    case "mySuperCalendar":{
+                        jumper = new Intent(mContext,SuperCalendar.class);
+                    }break;
+                    case "getApplicationList":{
+                        jumper = new Intent(mContext,GetApplicationListActivity.class);
+                    }break;
                 }
                 startActivity(jumper);
             }
@@ -170,6 +176,14 @@ public class MainActivity extends AppCompatActivity {
         item12.setStrName(getString(R.string.myCalendar));
         item12.setStrTag("myCalendar");
         list.add(item12);
+        ItemActivity item13 = new ItemActivity();
+        item13.setStrName(getString(R.string.mySuperCalendar));
+        item13.setStrTag("mySuperCalendar");
+        list.add(item13);
+        ItemActivity item14 = new ItemActivity();
+        item14.setStrName(getString(R.string.getApplicationList));
+        item14.setStrTag("getApplicationList");
+        list.add(item14);
     }
 
     /**
