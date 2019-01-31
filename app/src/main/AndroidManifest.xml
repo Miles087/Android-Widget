@@ -13,6 +13,10 @@
     <!--指纹解锁-->
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
 
+    <!--声波-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -79,6 +83,9 @@
 
         <!-- 拉去手机里的APP列表 -->
         <activity android:name=".GetApplicationListActivity" />
+        
+        <!-- 声波传递消息 -->
+        <activity android:name=".SoundPassMessage" />
 
     </application>
 

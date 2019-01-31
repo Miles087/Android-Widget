@@ -116,6 +116,9 @@ public class MainActivity extends AppCompatActivity {
                     case "getApplicationList":{
                         jumper = new Intent(mContext,GetApplicationListActivity.class);
                     }break;
+                    case "soundPassMsg":{
+                        jumper = new Intent(mContext,SoundPassMessage.class);
+                    }break;
                 }
                 startActivity(jumper);
             }
@@ -184,6 +187,10 @@ public class MainActivity extends AppCompatActivity {
         item14.setStrName(getString(R.string.getApplicationList));
         item14.setStrTag("getApplicationList");
         list.add(item14);
+        ItemActivity item15 = new ItemActivity();
+        item15.setStrName(getString(R.string.soundPassMsg));
+        item15.setStrTag("soundPassMsg");
+        list.add(item15);
     }
 
     /**
