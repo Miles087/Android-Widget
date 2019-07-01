@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.miles.project.activities.AnimationListViewActivity;
+import com.example.miles.project.activities.CalendarActivity;
+import com.example.miles.project.activities.DragPullActivity;
+import com.example.miles.project.activities.FlowActivity;
+import com.example.miles.project.activities.GetApplicationListActivity;
+import com.example.miles.project.activities.HomeActivity;
+import com.example.miles.project.activities.MyCameraActivity;
+import com.example.miles.project.activities.MyFingerPrintActivity;
+import com.example.miles.project.activities.UploadImageActivity;
+import com.example.miles.project.activities.VolumeActivity;
 import com.example.miles.project.adapter.ItemActivity;
 import com.example.miles.project.adapter.ItemMainCellAdapter;
 import com.example.miles.project.widget.CacheManager;
@@ -58,22 +70,23 @@ public class MainActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         initViewData();
         list_activity_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 ItemActivity item = list.get(i);
                 Intent jumper = null;
                 switch (item.getStrTag()){
                     case "pull":{
-                        jumper = new Intent(mContext,DragPullActivity.class);
+                        jumper = new Intent(mContext, DragPullActivity.class);
                     }break;
                     case "volume":{
-                        jumper = new Intent(mContext,VolumeActivity.class);
+                        jumper = new Intent(mContext, VolumeActivity.class);
                     }break;
                     case "fragmentValueActivity":{
-                        jumper = new Intent(mContext,HomeActivity.class);
+                        jumper = new Intent(mContext, HomeActivity.class);
                     }break;
                     case "myCamera":{
-                        jumper = new Intent(mContext,MyCameraActivity.class);
+                        jumper = new Intent(mContext, MyCameraActivity.class);
                     }break;
                     case "rollPictures":{
                         jumper = new Intent(mContext,RollImages.class);
@@ -82,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
                         jumper = new Intent(mContext,TouchView.class);
                     }break;
                     case "flowLayout":{
-                        jumper = new Intent(mContext,FlowActivity.class);
+                        jumper = new Intent(mContext, FlowActivity.class);
                     }break;
                     case "listView":{
-                        jumper = new Intent(mContext,AnimationListViewActivity.class);
+                        jumper = new Intent(mContext, AnimationListViewActivity.class);
                     }break;
                     case "fingerUnLock":{
                         jumper = new Intent(mContext,FingerUnLock.class);
@@ -105,19 +118,22 @@ public class MainActivity extends AppCompatActivity {
                         jumper = new Intent(mContext,MoreFontTextView.class);
                     }break;
                     case "fingerUnLockWithMyActivity":{
-                        jumper = new Intent(mContext,MyFingerPrintActivity.class);
+                        jumper = new Intent(mContext, MyFingerPrintActivity.class);
                     }break;
                     case "myCalendar":{
-                        jumper = new Intent(mContext,CalendarActivity.class);
+                        jumper = new Intent(mContext, CalendarActivity.class);
                     }break;
                     case "mySuperCalendar":{
                         jumper = new Intent(mContext,SuperCalendar.class);
                     }break;
                     case "getApplicationList":{
-                        jumper = new Intent(mContext,GetApplicationListActivity.class);
+                        jumper = new Intent(mContext, GetApplicationListActivity.class);
                     }break;
                     case "soundPassMsg":{
                         jumper = new Intent(mContext,SoundPassMessage.class);
+                    }break;
+                    case "uploadImage":{
+                        jumper = new Intent(mContext, UploadImageActivity.class);
                     }break;
                 }
                 startActivity(jumper);
@@ -191,6 +207,10 @@ public class MainActivity extends AppCompatActivity {
         item15.setStrName(getString(R.string.soundPassMsg));
         item15.setStrTag("soundPassMsg");
         list.add(item15);
+        ItemActivity item16 = new ItemActivity();
+        item16.setStrName(getString(R.string.uploadImage));
+        item16.setStrTag("uploadImage");
+        list.add(item16);
     }
 
     /**

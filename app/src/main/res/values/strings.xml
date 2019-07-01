@@ -26,6 +26,7 @@
     <string name="mySuperCalendar">更牛逼的自定义日历</string>
     <string name="getApplicationList">拉取手机APP列表</string>
     <string name="soundPassMsg">声波传秘</string>
+    <string name="uploadImage">图片上传</string>
 
     <string name="submit">提交</string>
 </resources>
