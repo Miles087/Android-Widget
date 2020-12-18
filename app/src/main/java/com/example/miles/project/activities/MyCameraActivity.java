@@ -114,6 +114,11 @@ public class MyCameraActivity extends Activity {
                             e.printStackTrace();
                         }
                     }
+
+
+
+//                    new File(strFilePath)
+
                 }
                 break;
             }

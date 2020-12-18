@@ -19,8 +19,10 @@ import com.example.miles.project.activities.DragPullActivity;
 import com.example.miles.project.activities.FlowActivity;
 import com.example.miles.project.activities.GetApplicationListActivity;
 import com.example.miles.project.activities.HomeActivity;
+import com.example.miles.project.activities.MQTTActivity;
 import com.example.miles.project.activities.MyCameraActivity;
 import com.example.miles.project.activities.MyFingerPrintActivity;
+import com.example.miles.project.activities.MyProgressBar;
 import com.example.miles.project.activities.UploadImageActivity;
 import com.example.miles.project.activities.VolumeActivity;
 import com.example.miles.project.adapter.ItemActivity;
@@ -34,14 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     *  mediaPlayer.setDataSource("https://api.live.bilibili.com/api/playurl?platform=h5&cid=3742025");
-     *  mediaPlayer.setDataSource("rtmp://203.207.99.19:1935/live/CCTV5");
-     *  mediaPlayer.setDataSource("http://www.360doc.com/rtsp://2.itvitv.com/tvbmov.saqjsdfdtwn");
-     *  mediaPlayer.setDataSource("http://58.30.32.130:8090/live/C89B590F4F8C4fbc960028B35665DA39/index.m3u8");
-     *  mediaPlayer.setDataSource("rtsp://58.200.131.2/cctv-6-hd");
-     *  mediaPlayer.setDataSource("rtmp://203.207.99.19:1935/live/CCTV5");
+     * mediaPlayer.setDataSource("https://api.live.bilibili.com/api/playurl?platform=h5&cid=3742025");
+     * mediaPlayer.setDataSource("rtmp://203.207.99.19:1935/live/CCTV5");
+     * mediaPlayer.setDataSource("http://www.360doc.com/rtsp://2.itvitv.com/tvbmov.saqjsdfdtwn");
+     * mediaPlayer.setDataSource("http://58.30.32.130:8090/live/C89B590F4F8C4fbc960028B35665DA39/index.m3u8");
+     * mediaPlayer.setDataSource("rtsp://58.200.131.2/cctv-6-hd");
+     * mediaPlayer.setDataSource("rtmp://203.207.99.19:1935/live/CCTV5");
      */
-
 
 
     ListView list_activity_item;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
-        list_activity_item = (ListView)findViewById(R.id.list_activity_item);
+        list_activity_item = (ListView) findViewById(R.id.list_activity_item);
 
         //设置默认缓存路径
         CacheManager.setSysCachePath(getCacheDir().getPath());
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        adapter = new ItemMainCellAdapter(mContext,list);
+        adapter = new ItemMainCellAdapter(mContext, list);
         list_activity_item.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         initViewData();
@@ -75,73 +76,97 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 ItemActivity item = list.get(i);
                 Intent jumper = null;
-                switch (item.getStrTag()){
-                    case "pull":{
+                switch (item.getStrTag()) {
+                    case "progressBar": {
+                        jumper = new Intent(mContext, MyProgressBar.class);
+                    }
+                    break;
+                    case "pull": {
                         jumper = new Intent(mContext, DragPullActivity.class);
-                    }break;
-                    case "volume":{
+                    }
+                    break;
+                    case "volume": {
                         jumper = new Intent(mContext, VolumeActivity.class);
-                    }break;
-                    case "fragmentValueActivity":{
+                    }
+                    break;
+                    case "fragmentValueActivity": {
                         jumper = new Intent(mContext, HomeActivity.class);
-                    }break;
-                    case "myCamera":{
+                    }
+                    break;
+                    case "myCamera": {
                         jumper = new Intent(mContext, MyCameraActivity.class);
-                    }break;
-                    case "rollPictures":{
-                        jumper = new Intent(mContext,RollImages.class);
-                    }break;
-                    case "dragView":{
-                        jumper = new Intent(mContext,TouchView.class);
-                    }break;
-                    case "flowLayout":{
+                    }
+                    break;
+                    case "rollPictures": {
+                        jumper = new Intent(mContext, RollImages.class);
+                    }
+                    break;
+                    case "dragView": {
+                        jumper = new Intent(mContext, TouchView.class);
+                    }
+                    break;
+                    case "flowLayout": {
                         jumper = new Intent(mContext, FlowActivity.class);
-                    }break;
-                    case "listView":{
+                    }
+                    break;
+                    case "listView": {
                         jumper = new Intent(mContext, AnimationListViewActivity.class);
-                    }break;
-                    case "fingerUnLock":{
-                        jumper = new Intent(mContext,FingerUnLock.class);
-                    }break;
-                    case "open_xpd":{
-                        String strPackageName = "com.要打开的APP";
+                    }
+                    break;
+                    case "fingerUnLock": {
+                        jumper = new Intent(mContext, FingerUnLock.class);
+                    }
+                    break;
+                    case "open_xpd": {
+                        String strPackageName = "com.spirit.t11capturepicture";
                         PackageManager packageManager = getPackageManager();
                         if (checkPackInfo(strPackageName)) {
                             Intent intent = packageManager.getLaunchIntentForPackage(strPackageName);
                             startActivity(intent);
                         } else {
-                            Toast.makeText(mContext,"没有安装小平贷",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "没有安装小平贷", Toast.LENGTH_SHORT).show();
                         }
                         return;
                     }
-                    case "more_font_textview":{
-                        jumper = new Intent(mContext,MoreFontTextView.class);
-                    }break;
-                    case "fingerUnLockWithMyActivity":{
+                    case "more_font_textview": {
+                        jumper = new Intent(mContext, MoreFontTextView.class);
+                    }
+                    break;
+                    case "fingerUnLockWithMyActivity": {
                         jumper = new Intent(mContext, MyFingerPrintActivity.class);
-                    }break;
-                    case "myCalendar":{
+                    }
+                    break;
+                    case "myCalendar": {
                         jumper = new Intent(mContext, CalendarActivity.class);
-                    }break;
-                    case "mySuperCalendar":{
-                        jumper = new Intent(mContext,SuperCalendar.class);
-                    }break;
-                    case "getApplicationList":{
+                    }
+                    break;
+                    case "mySuperCalendar": {
+                        jumper = new Intent(mContext, SuperCalendar.class);
+                    }
+                    break;
+                    case "getApplicationList": {
                         jumper = new Intent(mContext, GetApplicationListActivity.class);
-                    }break;
-                    case "soundPassMsg":{
-                        jumper = new Intent(mContext,SoundPassMessage.class);
-                    }break;
-                    case "uploadImage":{
+                    }
+                    break;
+                    case "soundPassMsg": {
+                        jumper = new Intent(mContext, SoundPassMessage.class);
+                    }
+                    break;
+                    case "uploadImage": {
                         jumper = new Intent(mContext, UploadImageActivity.class);
-                    }break;
+                    }
+                    break;
+                    case "mqttservice": {
+                        jumper = new Intent(mContext, MQTTActivity.class);
+                    }
+                    break;
                 }
                 startActivity(jumper);
             }
         });
     }
 
-    void initViewData(){
+    void initViewData() {
         list.clear();
         ItemActivity item = new ItemActivity();
         item.setStrName(getString(R.string.drag_pull_activity));
@@ -211,18 +236,27 @@ public class MainActivity extends AppCompatActivity {
         item16.setStrName(getString(R.string.uploadImage));
         item16.setStrTag("uploadImage");
         list.add(item16);
+        ItemActivity item17 = new ItemActivity();
+        item17.setStrName(getString(R.string.mqttservice));
+        item17.setStrTag("mqttservice");
+        list.add(item17);
+        ItemActivity item18 = new ItemActivity();
+        item18.setStrName(getString(R.string.progressBar));
+        item18.setStrTag("progressBar");
+        list.add(item18);
     }
 
     /**
      * 检查包是否存在
+     *
      * @param packName
      * @return
      */
-    private boolean checkPackInfo(String packName){
+    private boolean checkPackInfo(String packName) {
         PackageInfo packageInfo = null;
-        try{
+        try {
             packageInfo = getPackageManager().getPackageInfo(packName, 0);
-        }catch (PackageManager.NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         return packageInfo != null;

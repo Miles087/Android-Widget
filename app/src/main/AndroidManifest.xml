@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.miles.project">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <!--指纹解锁-->
-    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <!--声波-->
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"></uses-permission>
 
     <application
@@ -26,49 +27,49 @@
             </intent-filter>
         </activity>
         <!--下拉刷新-->
-        <activity android:name="com.example.miles.project.activities.DragPullActivity"/>
+        <activity android:name="com.example.miles.project.activities.DragPullActivity" />
         <!--音量控制-->
-        <activity android:name="com.example.miles.project.activities.VolumeActivity"/>
+        <activity android:name="com.example.miles.project.activities.VolumeActivity" />
         <!--Activity和Fragment传值-->
-        <activity android:name="com.example.miles.project.activities.HomeActivity"/>
+        <activity android:name="com.example.miles.project.activities.HomeActivity" />
         <!--桌面小部件-->
         <receiver android:name="com.example.miles.project.realwidget.MyWidgetProvider">
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/app_widget_provider_info"/>
+                android:resource="@xml/app_widget_provider_info" />
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.example.miles.touchpull.realwidget.MyWidgetProvider.action.CLICK"/>
+                <action android:name="com.example.miles.touchpull.realwidget.MyWidgetProvider.action.CLICK" />
             </intent-filter>
         </receiver>
         <!--摄像机相关-->
-        <activity android:name="com.example.miles.project.activities.MyCameraActivity"/>
+        <activity android:name="com.example.miles.project.activities.MyCameraActivity" />
 
         <!--滑动图片-->
-        <activity android:name="com.example.miles.project.RollImages"/>
+        <activity android:name="com.example.miles.project.RollImages" />
 
         <!-- 可以拖拽的view -->
-        <activity android:name="com.example.miles.project.TouchView"/>
+        <activity android:name="com.example.miles.project.TouchView" />
 
         <!-- 流式布局 -->
-        <activity android:name=".activities.FlowActivity"/>
+        <activity android:name=".activities.FlowActivity" />
 
         <!-- 相机预览 -->
-        <activity android:name=".activities.CustomCameraActivity"/>
+        <activity android:name=".activities.CustomCameraActivity" />
 
         <!-- 带动画效果的ListView -->
-        <activity android:name=".activities.AnimationListViewActivity"/>
+        <activity android:name=".activities.AnimationListViewActivity" />
 
         <!-- 指纹解锁 -->
-        <activity android:name=".FingerUnLock"/>
+        <activity android:name=".FingerUnLock" />
 
         <!-- ijkPlayer播放器 -->
 
         <!-- 支持多个字符集的TextView -->
-        <activity android:name=".MoreFontTextView"/>
+        <activity android:name=".MoreFontTextView" />
 
         <!-- 自定义指纹解锁界面 -->
-        <activity android:name=".activities.MyFingerPrintActivity"/>
+        <activity android:name=".activities.MyFingerPrintActivity" />
 
         <!-- 自定义日历 -->
         <activity android:name=".activities.CalendarActivity" />
@@ -78,12 +79,18 @@
 
         <!-- 拉去手机里的APP列表 -->
         <activity android:name=".activities.GetApplicationListActivity" />
-        
+
         <!-- 声波传递消息 -->
         <activity android:name=".SoundPassMessage" />
 
         <!-- 上传图片 -->
         <activity android:name=".activities.UploadImageActivity" />
+
+        <!-- MQTT测试 -->
+        <activity android:name=".activities.MQTTActivity" />
+
+        <!-- 圆形进度条 -->
+        <activity android:name=".activities.MyProgressBar" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -92,7 +99,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
 
     </application>

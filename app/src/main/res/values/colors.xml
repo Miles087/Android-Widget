@@ -12,4 +12,8 @@
     <color name="version3_back_ground_color">#F5F5F5</color>
     <color name="version3_home_red">#FF4B43</color>
     <color name="white">#FFFFFF</color>
+
+
+    <color name="big_tound">#33507A</color>
+    <color name="dgree_scale">#42E5FB</color>
 </resources>
