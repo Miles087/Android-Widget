@@ -9,7 +9,6 @@
 
     <string name="drag_pull_activity">下拉刷新</string>
     <string name="volume_activity">音量控制</string>
-    <string name="fragment_value_activity">Activity与Fragment传值</string>
     <string name="my_camera">我的摄像机</string>
     <string name="roll_pictures">我的滑动图片</string>
     <string name="drag_view">可拖拽的view</string>
@@ -26,7 +25,6 @@
     <string name="mySuperCalendar">更牛逼的自定义日历</string>
     <string name="getApplicationList">拉取手机APP列表</string>
     <string name="soundPassMsg">声波传秘</string>
-    <string name="uploadImage">图片上传</string>
     <string name="mqttservice">MQTT测试</string>
     <string name="progressBar">圆形进度条</string>
 

@@ -31,7 +31,6 @@
         <!--音量控制-->
         <activity android:name="com.example.miles.project.activities.VolumeActivity" />
         <!--Activity和Fragment传值-->
-        <activity android:name="com.example.miles.project.activities.HomeActivity" />
         <!--桌面小部件-->
         <receiver android:name="com.example.miles.project.realwidget.MyWidgetProvider">
             <meta-data
@@ -84,7 +83,6 @@
         <activity android:name=".SoundPassMessage" />
 
         <!-- 上传图片 -->
-        <activity android:name=".activities.UploadImageActivity" />
 
         <!-- MQTT测试 -->
         <activity android:name=".activities.MQTTActivity" />

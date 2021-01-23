@@ -18,12 +18,10 @@ import com.example.miles.project.activities.CalendarActivity;
 import com.example.miles.project.activities.DragPullActivity;
 import com.example.miles.project.activities.FlowActivity;
 import com.example.miles.project.activities.GetApplicationListActivity;
-import com.example.miles.project.activities.HomeActivity;
 import com.example.miles.project.activities.MQTTActivity;
 import com.example.miles.project.activities.MyCameraActivity;
 import com.example.miles.project.activities.MyFingerPrintActivity;
 import com.example.miles.project.activities.MyProgressBar;
-import com.example.miles.project.activities.UploadImageActivity;
 import com.example.miles.project.activities.VolumeActivity;
 import com.example.miles.project.adapter.ItemActivity;
 import com.example.miles.project.adapter.ItemMainCellAdapter;
@@ -89,10 +87,6 @@ public class MainActivity extends AppCompatActivity {
                         jumper = new Intent(mContext, VolumeActivity.class);
                     }
                     break;
-                    case "fragmentValueActivity": {
-                        jumper = new Intent(mContext, HomeActivity.class);
-                    }
-                    break;
                     case "myCamera": {
                         jumper = new Intent(mContext, MyCameraActivity.class);
                     }
@@ -152,10 +146,6 @@ public class MainActivity extends AppCompatActivity {
                         jumper = new Intent(mContext, SoundPassMessage.class);
                     }
                     break;
-                    case "uploadImage": {
-                        jumper = new Intent(mContext, UploadImageActivity.class);
-                    }
-                    break;
                     case "mqttservice": {
                         jumper = new Intent(mContext, MQTTActivity.class);
                     }
@@ -176,10 +166,6 @@ public class MainActivity extends AppCompatActivity {
         item1.setStrName(getString(R.string.volume_activity));
         item1.setStrTag("volume");
         list.add(item1);
-        ItemActivity item2 = new ItemActivity();
-        item2.setStrName(getString(R.string.fragment_value_activity));
-        item2.setStrTag("fragmentValueActivity");
-        list.add(item2);
         ItemActivity item3 = new ItemActivity();
         item3.setStrName(getString(R.string.my_camera));
         item3.setStrTag("myCamera");
@@ -232,10 +218,6 @@ public class MainActivity extends AppCompatActivity {
         item15.setStrName(getString(R.string.soundPassMsg));
         item15.setStrTag("soundPassMsg");
         list.add(item15);
-        ItemActivity item16 = new ItemActivity();
-        item16.setStrName(getString(R.string.uploadImage));
-        item16.setStrTag("uploadImage");
-        list.add(item16);
         ItemActivity item17 = new ItemActivity();
         item17.setStrName(getString(R.string.mqttservice));
         item17.setStrTag("mqttservice");
