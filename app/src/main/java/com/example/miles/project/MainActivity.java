@@ -1,12 +1,12 @@
 package com.example.miles.project;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,7 +30,7 @@ import com.example.miles.project.widget.CacheManager;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
 
     /**

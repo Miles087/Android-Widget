@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.miles.project">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <!--指纹解锁-->
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
-
     <!--声波-->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"></uses-permission>
-
+    <!--MQTT要用到这个-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -99,6 +100,12 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
+        <!-- Mqtt服务 -->
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+        <service
+            android:name=".service.MQTTService"
+            android:enabled="true" />
 
     </application>
 

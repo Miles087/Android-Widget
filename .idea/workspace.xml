@@ -2,33 +2,25 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config />
+      <config>
+        <device id="pixel_2_xl" />
+      </config>
     </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="MY_MQTT_SERVICE" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92977d0f-2a2a-43c1-a42b-e72a628f8481" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/android_android_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/android_android_26.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/service/MQTTService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TouchPull.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/HomeActivity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/activities/HomeActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/activities/UploadImageActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_upload_image.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/activities/MQTTActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/activities/MQTTActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_mqttservice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mqttservice.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +67,11 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.miles.project.service" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
@@ -206,6 +203,16 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="286" y="158" key="#PSD" timestamp="1611304569843">
       <screen x="0" y="0" width="1536" height="824" />
@@ -215,6 +222,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1611368742086" />
+    <state x="362" y="0" key="CommitChangelistDialog2" timestamp="1611368786668">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="362" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1611368786668" />
+    <state width="1478" height="207" key="GridCell.Tab.0.bottom" timestamp="1614308167571">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614308167571" />
+    <state width="1478" height="207" key="GridCell.Tab.0.center" timestamp="1614308167571">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1614308167571" />
+    <state width="1478" height="207" key="GridCell.Tab.0.left" timestamp="1614308167571">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1614308167571" />
+    <state width="1478" height="207" key="GridCell.Tab.0.right" timestamp="1614308167571">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1614308167571" />
+    <state x="477" y="114" key="RollbackChangesDialog" timestamp="1611368803682">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="477" y="114" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1611368803682" />
     <state x="470" y="144" width="596" height="536" key="find.popup" timestamp="1611368509380">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
