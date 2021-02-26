@@ -93,7 +93,7 @@ public class MQTTActivity extends Activity {
     private View.OnClickListener sendMsgListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            MQTTService.publish("C1005");
+            MQTTService.publish("消息内容");
         }
     };
 }

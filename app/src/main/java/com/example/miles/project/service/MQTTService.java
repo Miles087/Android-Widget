@@ -27,6 +27,16 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
  * Author:      Created by Miles Wang
  * CreatedDate: 2020-11-30 11:16
  * Email:       icy-star@qq.com
+ *
+ * · AndroidManifest.xml中需要以下权限：
+ * <uses-permission android:name="android.permission.WAKE_LOCK" />
+ * · AndroidManifest.xml中需要注册以下服务
+ * <service android:name="org.eclipse.paho.android.service.MqttService" />
+ * <service android:name=".service.MQTTService" android:enabled="true" />
+ * · 消息发送：
+ * MQTTService.publish("消息内容");
+ * 
+ *
  **/
 
 public class MQTTService extends Service {
