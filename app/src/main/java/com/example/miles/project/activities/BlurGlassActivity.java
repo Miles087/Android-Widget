@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.example.miles.project.R;
@@ -40,7 +41,7 @@ public class BlurGlassActivity extends Activity {
                 blurImageView.refreshBG(mBackGround);
             }
         };
-        Timer timer = new Timer();
+        final Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
@@ -51,5 +52,19 @@ public class BlurGlassActivity extends Activity {
             }
         };
         timer.schedule(task, 0, 1000);
+
+        blurImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                blurImageView.setVisibility(View.GONE);
+            }
+        });
+
+        mBackGround.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                blurImageView.setVisibility(View.VISIBLE);
+            }
+        });
     }
 }
