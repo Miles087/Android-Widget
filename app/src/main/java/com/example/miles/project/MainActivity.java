@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.miles.project.activities.AnimationListViewActivity;
+import com.example.miles.project.activities.BlurGlassActivity;
 import com.example.miles.project.activities.CalendarActivity;
 import com.example.miles.project.activities.DragPullActivity;
 import com.example.miles.project.activities.FlowActivity;
@@ -112,7 +113,7 @@ public class MainActivity extends Activity {
                     }
                     break;
                     case "open_xpd": {
-                        String strPackageName = "com.spirit.t11capturepicture";
+                        String strPackageName = "com.miles.xpd";
                         PackageManager packageManager = getPackageManager();
                         if (checkPackInfo(strPackageName)) {
                             Intent intent = packageManager.getLaunchIntentForPackage(strPackageName);
@@ -150,6 +151,12 @@ public class MainActivity extends Activity {
                         jumper = new Intent(mContext, MQTTActivity.class);
                     }
                     break;
+                    case "bleDeviceConnect":{
+                        
+                    }break;
+                    case "blurGlassView":{
+                        jumper = new Intent(mContext, BlurGlassActivity.class);
+                    }break;
                 }
                 startActivity(jumper);
             }
@@ -226,6 +233,14 @@ public class MainActivity extends Activity {
         item18.setStrName(getString(R.string.progressBar));
         item18.setStrTag("progressBar");
         list.add(item18);
+        ItemActivity item19 = new ItemActivity();
+        item19.setStrName(getString(R.string.bleDeviceConnect));
+        item19.setStrTag("bleDeviceConnect");
+        list.add(item19);
+        ItemActivity item20 = new ItemActivity();
+        item20.setStrName(getString(R.string.blurGlassView));
+        item20.setStrTag("blurGlassView");
+        list.add(item20);
     }
 
     /**

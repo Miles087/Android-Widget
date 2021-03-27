@@ -14,8 +14,9 @@
   <component name="ChangeListManager">
     <list default="true" id="92977d0f-2a2a-43c1-a42b-e72a628f8481" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/activities/MQTTActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/activities/MQTTActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/service/MQTTService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/miles/project/service/MQTTService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +44,15 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -55,8 +65,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android-custom-viewD:/AndroidProject/GitHub/Android-Widget/app/src/main/java/com/example/miles/project/view/BlurImageView.java_SELECTED" value="BlurImageView" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi" />
+    <property name="multi-representation-previewD:/AndroidProject/GitHub/Android-Widget/app/src/main/java/com/example/miles/project/view/BlurImageView.java_selected" value="Custom views" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -66,6 +78,9 @@
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.miles.project.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\AndroidProject\GitHub\Android-Widget\app\src\main\res\drawable-xxxhdpi" />
     </key>
   </component>
   <component name="RunManager">
@@ -213,41 +228,61 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="286" y="158" key="#PSD/0.0.1536.824@0.0.1536.824" timestamp="1611304569843" />
+    <state x="544" y="279" width="448" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1615172820596">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="544" y="279" width="448" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1615172820596" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611368742086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1611368742086" />
+    <state x="349" y="167" key="AndroidCreateResourceDirectoryDialog" timestamp="1616822740985">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="349" y="167" key="AndroidCreateResourceDirectoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1616822740985" />
+    <state x="349" y="166" key="AndroidCreateResourceFileDialog" timestamp="1616813107763">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="349" y="166" key="AndroidCreateResourceFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1616813107763" />
     <state x="362" y="0" key="CommitChangelistDialog2" timestamp="1611368786668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="362" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1611368786668" />
-    <state width="1493" height="209" key="GridCell.Tab.0.bottom" timestamp="1614308794379">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1614411282100">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614308794379" />
-    <state width="1493" height="209" key="GridCell.Tab.0.center" timestamp="1614308794379">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1614411282100" />
+    <state width="1493" height="165" key="GridCell.Tab.0.bottom" timestamp="1616812827438">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1614308794379" />
-    <state width="1493" height="209" key="GridCell.Tab.0.left" timestamp="1614308794379">
+    <state width="1493" height="165" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616812827438" />
+    <state width="1493" height="165" key="GridCell.Tab.0.center" timestamp="1616812827438">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1614308794379" />
-    <state width="1493" height="209" key="GridCell.Tab.0.right" timestamp="1614308794379">
+    <state width="1493" height="165" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616812827438" />
+    <state width="1493" height="165" key="GridCell.Tab.0.left" timestamp="1616812827438">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1614308794379" />
+    <state width="1493" height="165" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616812827438" />
+    <state width="1493" height="165" key="GridCell.Tab.0.right" timestamp="1616812827438">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="165" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616812827438" />
     <state x="477" y="114" key="RollbackChangesDialog" timestamp="1611368803682">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="114" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1611368803682" />
+    <state x="206" y="0" key="ScreenshotViewer.Dimensions" timestamp="1616577959381">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="206" y="0" key="ScreenshotViewer.Dimensions/0.0.1536.824@0.0.1536.824" timestamp="1616577959381" />
     <state x="470" y="144" width="596" height="536" key="find.popup" timestamp="1611368509380">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="470" y="144" width="596" height="536" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1611368509380" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1611304616919">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1614391979037">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1611304616919" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1614391979037" />
   </component>
 </project>

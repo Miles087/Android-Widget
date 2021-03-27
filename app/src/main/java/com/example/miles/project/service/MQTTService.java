@@ -35,7 +35,6 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
  * <service android:name=".service.MQTTService" android:enabled="true" />
  * · 消息发送：
  * MQTTService.publish("消息内容");
- * 
  *
  **/
 
@@ -51,9 +50,6 @@ public class MQTTService extends Service {
     public static String CLIENTID = "";//客户端ID，一般以客户端唯一标识符表示，这里用设备序列号表示
     public static String publishTopic = "";
     public static String responseTopic = "";
-
-
-
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {

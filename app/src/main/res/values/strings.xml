@@ -27,6 +27,8 @@
     <string name="soundPassMsg">声波传秘</string>
     <string name="mqttservice">MQTT测试</string>
     <string name="progressBar">圆形进度条</string>
+    <string name="bleDeviceConnect">Ble设备通信</string>
+    <string name="blurGlassView">毛玻璃效果</string>
 
     <string name="submit">提交</string>
 </resources>

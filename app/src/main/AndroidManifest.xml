@@ -14,6 +14,13 @@
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"></uses-permission>
     <!--MQTT要用到这个-->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 蓝牙用到的 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -91,6 +98,12 @@
         <!-- 圆形进度条 -->
         <activity android:name=".activities.MyProgressBar" />
 
+        <!-- 低功耗蓝牙 -->
+        <activity android:name=".activities.BleConnectActivity" />
+
+        <!-- 毛玻璃效果的界面 -->
+        <activity android:name=".activities.BlurGlassActivity" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -108,5 +121,10 @@
             android:enabled="true" />
 
     </application>
+
+    <!-- ble -->
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
 </manifest>
