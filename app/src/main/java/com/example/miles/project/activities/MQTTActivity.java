@@ -62,12 +62,12 @@ public class MQTTActivity extends Activity {
      * 设置默认值
      */
     private void setDefaultValue() {
-        etAddress.setText("tcp://8.140.133.144:1883");
-        etUserName.setText("admin");
-        etPassword.setText("public");
+        etAddress.setText("");
+        etUserName.setText("");
+        etPassword.setText("");
         etClientId.setText("122444"+System.currentTimeMillis());
-        etPublishTopic.setText("282287811");
-        etResponseToic.setText("2822878112");
+        etPublishTopic.setText("");
+        etResponseToic.setText("");
     }
 
     /**
